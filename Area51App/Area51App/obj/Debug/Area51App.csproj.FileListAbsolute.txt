@@ -1,0 +1,7 @@
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\bin\Debug\Area51App.exe.config
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\bin\Debug\Area51App.exe
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\bin\Debug\Area51App.pdb
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\obj\Debug\Area51App.csprojResolveAssemblyReference.cache
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\obj\Debug\Area51App.csproj.CoreCompileInputs.cache
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\obj\Debug\Area51App.exe
+D:\Programming\C#\TPL\Area51App\Area51App\Area51App\obj\Debug\Area51App.pdb
