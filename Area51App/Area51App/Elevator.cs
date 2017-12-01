@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Area51App
@@ -12,6 +10,13 @@ namespace Area51App
 
         public static Agent Passenger { get; set; }
 
+        public static AutoResetEvent Signal { get; set; } = new AutoResetEvent(false);  // receive new agent/s
 
+
+        public static void Run()
+        {
+            Agents = new Queue<Agent>();
+            var taskElevator = Task.Factory.StartNew(() => Util.ElevatorConsumer());
+        }
     }
 }

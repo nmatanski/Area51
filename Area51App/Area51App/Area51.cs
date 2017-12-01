@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
 
 namespace Area51App
 {
     public static class Area51
     {
-
-
         public static ConcurrentDictionary<int, Agent> Agents { get; set; } = new ConcurrentDictionary<int, Agent>();
+
 
         static Area51()
         {
@@ -23,11 +17,9 @@ namespace Area51App
         {
             for (int i = 1; i <= Program.Count; i++)
             {
-                Agents.TryAdd(i, new Agent(Util.RandomEnum<SecurityLevel>(), Util.RandomEnum<Access>()));
+                Agents.TryAdd(i, new Agent(i, Util.RandomEnum<SecurityLevel>(), Util.RandomEnum<Access>()));
             }
 
         }
-
-
     }
 }

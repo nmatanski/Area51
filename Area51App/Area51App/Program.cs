@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Area51App
 {
@@ -14,14 +10,14 @@ namespace Area51App
 
         static void Main(string[] args)
         {
+
             Console.Write("How many agents do you want to generate? ");
             if (!int.TryParse(Console.ReadLine(), out int temp)) temp = 0;
             Count = temp;
 
             Console.WriteLine("Generating agents...");
 
-
-            foreach (var agent in Area51.Agents)
+            foreach (var agent in Area51.Agents) // starts a task for every Agent through the static class
             {
                 Console.Write($"{agent.Key}: {agent.Value.Level.ToString()} (Access: ");
                 agent.Value.FloorAccess.ForEach(access => Console.Write(access.ToString() + ' '));
@@ -31,15 +27,22 @@ namespace Area51App
 
             Console.WriteLine($"\n{Count} agents have been generated.");
 
-            Console.WriteLine("\n\nLoading for a sec...\n");
+            Elevator.Run(); // starts the elevator's task 
+
+            Console.WriteLine("\n\nLoading...\n");
             Thread.Sleep(1000);
 
 
+
+            bool hasAgentsWithPermissions = false; // All agents have a security level Confidential
+            foreach (var agent in Area51.Agents)
+            {
+                if (agent.Value.Level != SecurityLevel.Confidential)
+                    hasAgentsWithPermissions = true;
+            }
+            while (hasAgentsWithPermissions) ;
             Console.WriteLine("Press any key to continue...");
             Console.ReadLine();
-
-            //Area51.Agents[0].Level = SecurityLevel.TopSecret;
-            //Console.WriteLine(Area51.Agents[0].Level.ToString());
         }
     }
 }
